@@ -1,0 +1,111 @@
+.interactive-section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  padding: 10vh 0;
+}
+
+/* Left: sticky text block */
+.interactive-text {
+  padding: 0 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.interactive-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.interactive-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 9rem);
+  line-height: 0.88;
+  letter-spacing: -3px;
+  text-transform: uppercase;
+}
+.interactive-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(244,244,244,0.5);
+  max-width: 380px;
+}
+.interactive-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 0.5rem;
+  width: fit-content;
+  transition: color 0.3s, gap 0.3s;
+  cursor: pointer;
+}
+.interactive-cta:hover {
+  color: var(--accent);
+  gap: 1.5rem;
+}
+
+/* Right: distortion image */
+.interactive-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  will-change: transform;
+}
+.interactive-image-wrap img {
+  width: 100%;
+  height: 115%; /* headroom for parallax */
+  object-fit: cover;
+  filter: grayscale(80%) contrast(1.1);
+  transform-origin: center center;
+  will-change: transform;
+  transition: filter 0.5s;
+}
+.interactive-image-wrap:hover img {
+  filter: grayscale(0%) contrast(1.05);
+}
+
+/* Scanline overlay on the image */
+.interactive-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0,0,0,0.08) 3px,
+    rgba(0,0,0,0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Caption strip */
+.interactive-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(5,5,5,0.85), transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .interactive-section { grid-template-columns: 1fr; }
+  .interactive-image-wrap { height: 60vh; }
+  .hero-image-wrapper { width: 70vw; right: 15%; top: 35%; opacity: 0.5; }
+  .indent { margin-left: 0 !important; }
+}

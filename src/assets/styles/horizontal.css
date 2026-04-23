@@ -1,0 +1,51 @@
+.horizontal-pin {
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+.h-scroll-container {
+  display: flex;
+  width: 300vw;
+  height: 100vh;
+}
+.h-panel {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.dark-panel { background-color: var(--bg-color); }
+.light-panel { background-color: var(--text-color); }
+.h-title {
+  font-size: clamp(6rem, 15vw, 20rem);
+  white-space: nowrap;
+}
+.black-txt { color: var(--bg-color); }
+.h-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  max-width: 500px;
+  text-align: center;
+  margin-top: 2rem;
+  letter-spacing: 0px;
+}
+.img-panel {
+  background-color: #020202;
+  overflow: hidden;
+}
+.h-img-wrapper {
+  width: 50vw;
+  height: 80vh;
+  overflow: hidden;
+}
+.breathtaking-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) contrast(1.3);
+}
