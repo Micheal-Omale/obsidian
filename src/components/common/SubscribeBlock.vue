@@ -1,15 +1,15 @@
 <template>
-  <div class="sub-block w-full bg-white text-black py-32 px-8 flex flex-col md:flex-row items-center justify-between border-t border-b border-white select-none relative z-10 my-32">
+  <div class="sub-block">
     <!-- Massive Text Area -->
-    <div class="mb-12 md:mb-0 w-full md:w-1/2">
-      <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none m-0">TRANSMIT<br>PROTOCOL</h2>
-      <p class="mt-8 font-bold text-[10px] md:text-xs tracking-[0.3em] uppercase text-[#555]">Establish direct server link for updates.</p>
+    <div class="sub-text">
+      <h2 class="sub-heading">TRANSMIT<br>PROTOCOL</h2>
+      <p class="sub-desc">Establish direct server link for updates.</p>
     </div>
     
     <!-- Violent Input Box -->
-    <div class="w-full md:w-1/2 flex flex-col md:flex-row border-b-4 border-black pb-2 items-center">
-      <input type="email" placeholder="ENTER YOUR EMAIL DATA" class="w-full bg-transparent outline-none font-bold text-sm tracking-widest placeholder-black/30 uppercase py-4" />
-      <button class="shrink-0 bg-black text-white px-10 py-5 font-black text-xs tracking-[0.3em] uppercase hover:bg-[#333] hover:-translate-y-1 transition-all duration-300 w-full md:w-auto mt-6 md:mt-0 shadow-lg shadow-black/20">
+    <div class="sub-input-wrap">
+      <input type="email" placeholder="ENTER YOUR EMAIL DATA" class="sub-input" />
+      <button class="sub-btn">
         [ INITIATE SUB ]
       </button>
     </div>
@@ -17,52 +17,129 @@
 </template>
 
 <style scoped>
-.w-full { width: 100%; }
-.bg-white { background-color: #ffffff; }
-.text-black { color: #000000; }
-.py-32 { padding-top: 8rem; padding-bottom: 8rem; }
-.px-8 { padding-left: 2rem; padding-right: 2rem; }
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.border-b-4 { border-bottom-width: 4px; border-bottom-style: solid; }
-.border-black { border-color: #000000; }
-.pb-2 { padding-bottom: 0.5rem; }
-.font-black { font-weight: 900; }
-.font-bold { font-weight: 700; }
-.uppercase { text-transform: uppercase; }
-.tracking-tighter { letter-spacing: -0.05em; }
-.tracking-widest { letter-spacing: 0.1em; }
-.tracking-\[0\.3em\] { letter-spacing: 0.3em; }
-.leading-none { line-height: 1; }
-.m-0 { margin: 0; }
-.mt-8 { margin-top: 2rem; }
-.mt-6 { margin-top: 1.5rem; }
-.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-.py-5 { padding-top: 1.25rem; padding-bottom: 1.25rem; }
-.px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
-.bg-transparent { background-color: transparent; }
-.outline-none { outline: 2px solid transparent; outline-offset: 2px; }
-.shrink-0 { flex-shrink: 0; }
-.transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-.duration-300 { transition-duration: 300ms; }
-.my-32 { margin-top: 8rem; margin-bottom: 8rem; }
-.select-none { user-select: none; }
-.hover\:bg-\[\#333\]:hover { background-color: #333333; cursor: pointer; }
-.hover\:-translate-y-1:hover { transform: translateY(-0.25rem); }
-input { border: none !important; }
-
-@media (min-width: 768px) {
-  .md\:flex-row { flex-direction: row; }
-  .md\:mb-0 { margin-bottom: 0; }
-  .md\:w-1\/2 { width: 50%; }
-  .md\:w-auto { width: auto; }
-  .md\:mt-0 { margin-top: 0; }
-  .md\:text-7xl { font-size: 4.5rem; }
-  .md\:text-xs { font-size: 0.75rem; }
+.sub-block {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  user-select: none;
+  position: relative;
+  z-index: 10;
+  margin: 4rem 0;
+  gap: 2.5rem;
 }
-.text-4xl { font-size: 2.25rem; }
-.text-sm { font-size: 0.875rem; }
-.text-\[10px\] { font-size: 10px; }
+
+.sub-text {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.sub-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: 0;
+  color: #000000;
+}
+
+.sub-desc {
+  margin-top: 1.5rem;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #555555;
+}
+
+.sub-input-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 4px solid #000000;
+  padding-bottom: 0.5rem;
+  gap: 1rem;
+}
+
+.sub-input {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none !important;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  color: #000000;
+  box-sizing: border-box;
+}
+
+.sub-input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.sub-btn {
+  width: 100%;
+  flex-shrink: 0;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 1.25rem 2.5rem;
+  font-weight: 900;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.sub-btn:hover {
+  background-color: #333333;
+  transform: translateY(-0.25rem);
+}
+
+/* ── Tablet and up ── */
+@media (min-width: 768px) {
+  .sub-block {
+    flex-direction: row;
+    align-items: center;
+    padding: 8rem 3rem;
+    margin: 8rem 0;
+    gap: 3rem;
+  }
+
+  .sub-text {
+    width: 50%;
+  }
+
+  .sub-heading {
+    font-size: 4.5rem;
+  }
+
+  .sub-desc {
+    font-size: 0.75rem;
+  }
+
+  .sub-input-wrap {
+    width: 50%;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  .sub-btn {
+    width: auto;
+  }
+}
 </style>
